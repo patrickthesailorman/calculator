@@ -1,0 +1,13 @@
+.btn-sm {
+    height: 40px;
+    width: 40px;
+}
+#zero {
+    height: 40px;
+    width: 83px;
+}
+#equals {
+    position: absolute;
+    height: 80px;
+    width: 40px;
+}
