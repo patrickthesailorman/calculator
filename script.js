@@ -27,7 +27,9 @@ $(document).ready(function() {
     //      document.getElementById("display").innerHTML = sum;
     //  },
      clear: function() {
+         document.getElementById("clear").onclick = function(){
          document.getElementById("display").innerHTML = "";
+         }
      },
      clearAll: function() {
          document.getElementById("display").innerHTML = "";
