@@ -1,13 +1,15 @@
 .btn-sm {
     height: 40px;
     width: 40px;
+    margin: 2px;
 }
 #zero {
     height: 40px;
-    width: 83px;
+    width: 90px;
 }
 #equals {
     position: absolute;
-    height: 80px;
+    height: 86px;
     width: 40px;
+    margin-left: 6px;
 }
