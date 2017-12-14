@@ -3,6 +3,7 @@
 $(document).ready(function() {
     
     var calculator = {
+        display: [],
         numbers: {
         },
      add: function(num1, num2) {
@@ -33,5 +34,13 @@ $(document).ready(function() {
      },
 }
 
+document.getElementById('value1').onclick = function() {
+    document.getElementById("display").value = 1;
+    calculator.display.push.value;
+}
+
+document.getElementById('plus').onclick = function() {
+    document.getElementById("display").value = "display".value && "+";
+}
 
 })
