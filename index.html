@@ -11,41 +11,42 @@
 </head>
 <body>
     <div class="container">
-        <h1>Calculator</h1>
+        <h1>Mexas Increments</h1>
     </div>
     <div class="container">
-        <div id="display">
+        <div id="screen">
             <form>
+                <input type="value" id="display">
                 <output></output>
             </form>
         </div>
         <div class="row" id="first">
-            <button type="button" class="btn btn-danger, btn-sm">AC</button>
-            <button type="button" class="btn btn-danger, btn-sm">C</button>
-            <button type="button" class="btn btn-primary btn-sm">&#247;</button>
-            <button type="button" class="btn btn-primary btn-sm">&#215;</button>
+            <button type="button" id="allClear" class="btn btn-danger, btn-sm">AC</button>
+            <button type="button" id="clear" class="btn btn-danger, btn-sm">C</button>
+            <button type="button" id="divide" class="btn btn-primary btn-sm">&#247;</button>
+            <button type="button" id="multiply" class="btn btn-primary btn-sm">&#215;</button>
         </div>
         <div class="row" id="second">
-            <button type="button" class="btn btn-primary btn-sm">7</button>
-            <button type="button" class="btn btn-primary btn-sm">8</button>
-            <button type="button" class="btn btn-primary btn-sm">9</button>
-            <button type="button" class="btn btn-primary btn-sm">-</button>
+            <button type="button" id="7" class="btn btn-primary btn-sm">7</button>
+            <button type="button" id="8" class="btn btn-primary btn-sm">8</button>
+            <button type="button" id="9" class="btn btn-primary btn-sm">9</button>
+            <button type="button" id="subtract" class="btn btn-primary btn-sm">-</button>
         </div>
         <div class="row" id="third">
-            <button type="button" class="btn btn-primary btn-sm">4</button>
-            <button type="button" class="btn btn-primary btn-sm">5</button>
-            <button type="button" class="btn btn-primary btn-sm">6</button>
-            <button type="button" class="btn btn-primary btn-sm">+</button>
+            <button type="button" id="4" class="btn btn-primary btn-sm">4</button>
+            <button type="button" id="5" class="btn btn-primary btn-sm">5</button>
+            <button type="button" id="6" class="btn btn-primary btn-sm">6</button>
+            <button type="button" id="plus" class="btn btn-primary btn-sm">+</button>
         </div>
         <div class="row" id="fourth">
-            <button type="button" class="btn btn-primary btn-sm">1</button>
-            <button type="button" class="btn btn-primary btn-sm">2</button>
-            <button type="button" class="btn btn-primary btn-sm">3</button>
-            <button type="button" class="btn btn-primary btn-lg" id="equals">=</button>
+            <button type="button" id="1" class="btn btn-primary btn-sm">1</button>
+            <button type="button" id="2" class="btn btn-primary btn-sm">2</button>
+            <button type="button" id="3" class="btn btn-primary btn-sm">3</button>
+            <button type="button" id="equals" class="btn btn-primary btn-lg" id="equals">=</button>
         </div>
         <div class="row" id="fifth">
-            <button type="button" class="btn btn-primary btn-lg" id="zero">0</button>
-            <button type="button" class="btn btn-primary btn-sm">.</button>
+            <button type="button" id="0" class="btn btn-primary btn-lg" id="zero">0</button>
+            <button type="button" id="decimal" class="btn btn-primary btn-sm">.</button>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
