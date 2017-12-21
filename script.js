@@ -27,8 +27,9 @@
         //  },
         clear: function() {
             document.getElementById("clear").onclick = function(position) {
-                this.display.splice(position, 1);
+                this.display.value.splice(position, 1);
                 
+                document.getElementById('display').value = calculator.display.join("");
             }
         },
         clearAll: function() {
@@ -104,12 +105,16 @@
         calculator.display.push(9);
         console.log(calculator.display)
         document.getElementById('display').value = calculator.display.join("");
-    }
+    },
 
     document.getElementById('plus').onclick = function() {
-        document.getElementById("display").value = "+" + calculator.display.join('');
+        var display = document.getElementById("display").innerHTML;
+        console.log(display);
+        var runningTotal = 0;
+        for (var i =0; i < display.length; i++) {
+            console.log(display[i]);
+            runningTotal = runningTotal + parseInt(display[i]);
+        }
+        console.log(runningTotal);
+        document.getElementById("display").innerHTML = runningTotal;
     }
-
-
-
-// })
