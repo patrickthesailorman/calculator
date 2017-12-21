@@ -4,7 +4,7 @@
 
     var calculator = {
         display: [],
-        numbers: {},
+        numbers: [],
         add: function(num1, num2) {
             var sum = num1 + num2;
             document.getElementById("display").innerHTML = sum;
@@ -26,8 +26,9 @@
         //      document.getElementById("display").innerHTML = sum;
         //  },
         clear: function() {
-            document.getElementById("clear").onclick = function() {
-                document.getElementById("display").value = calculator.display.pop();
+            document.getElementById("clear").onclick = function(position) {
+                this.display.splice(position, 1);
+                
             }
         },
         clearAll: function() {
@@ -106,7 +107,7 @@
     }
 
     document.getElementById('plus').onclick = function() {
-        document.getElementById("display").value = "display".value && "+";
+        document.getElementById("display").value = "+" + calculator.display.join('');
     }
 
 
