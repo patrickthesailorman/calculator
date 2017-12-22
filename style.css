@@ -15,5 +15,13 @@
 }
 #display {
     height: 50px;
-    width: 180px;
+    width: 140px;
+    margin-right: 0px;
+}
+#operatorInput {
+    position: fixed;
+    height: 50px;
+    width: 35px;
+    margin-left: 0px;
+    font-size: 32px;
 }
