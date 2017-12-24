@@ -2,21 +2,25 @@
     height: 40px;
     width: 40px;
     margin: 2px;
+    font-size: 20px;
 }
 #zero {
     height: 40px;
     width: 90px;
+    font-size: 20px;
 }
 #equals {
     position: absolute;
     height: 86px;
     width: 40px;
     margin-left: 6px;
+    font-size: 20px;
 }
 #display {
     height: 50px;
     width: 140px;
     margin-right: 0px;
+    font-size: 30px;
 }
 #operatorInput {
     position: fixed;

@@ -7,6 +7,7 @@
         numbers: [],
         add: function(num1, num2) {
             var sum = num1 + num2;
+            this.display.value = sum
             document.getElementById("display").innerHTML = sum;
         },
         subtract: function(num1, num2) {
@@ -33,37 +34,67 @@
             document.getElementById("display").innerHTML = "";
         }
     };
-
+var num1 = [];
+var num2 = [];
 var handlers = {
     add: function() {
     var operatorInput = document.getElementById('operatorInput');
-    calculator.add(calculator.display.value);
+    document.getElementById('display');
+    num1.push(parseInt(calculator.display.value));
+    calculator.add(parseInt(calculator.display.value));
     operatorInput.value = '+';
-    view.calculator.display();
+    view.display();
   },
 
     subtract: function() {
     var operatorInput = document.getElementById('operatorInput');
-    calculator.subtract(calculator.display.value);
+    num1.push(parseInt(calculator.display.value));
+    calculator.subtract(parseInt(calculator.display.value));
     operatorInput.value = '-';
     view.calculator.display();
   },
   
     multiply: function() {
     var operatorInput = document.getElementById('operatorInput');
-    calculator.subtract(calculator.display.value);
+    num1.push(parseInt(calculator.display.value));
+    calculator.multiply(parseInt(calculator.display.value));
     operatorInput.value = 'x';
     view.calculator.display();
   },
   
     divide: function() {
     var operatorInput = document.getElementById('operatorInput');
-    calculator.subtract(calculator.display.value);
+    num1.push(parseInt(calculator.display.value));
+    calculator.divide(parseInt(calculator.display.value));
     operatorInput.value = '/';
     view.calculator.display();
   },
   
-}
+    equals: function() {
+    
+    var operatorInput = document.getElementById('operatorInput');
+    num2.push(parseInt(calculator.display.value));
+    if(operatorInput.value === '+') {
+        calculator.add(num1, num2);
+    } else if(operatorInput.value === '-') {
+        calculator.subtract(num1, num2);
+    } else if(operatorInput.value === 'x') {
+        calculator.multiply(num1, num2);
+    } else if(operatorInput.value === '/') {
+        calculator.divide(num1, num2);
+    } else {
+        calculator.display.value;
+    }
+    operatorInput.value = '=';
+    view.display();
+  },
+  
+    clear: function(position) {
+    calculator.display.clear(position);
+    view.display();
+  },
+  
+};
 
     document.getElementById("clear").onclick = function(position) {
         var display = document.getElementById("display").innerHTML;
@@ -165,22 +196,22 @@ var handlers = {
 var view = {
   display: function() {
     var display = document.querySelector('display');
-    display.innerHTML = '';
-    
+    calculator.display.value = '';
+    var operatorInput = document.getElementById('operatorInput');
     calculator.display.forEach(function(num, position) {
-      var num = document.createElement('li');
-      var todoTextWithCompletion = '';
+      var num1 = [];
+      var num2 = [];
 
-      if (todo.completed === true) {
-        todoTextWithCompletion = '(x) ' + todo.todoText;
+      if (operatorInput === true) {
+        num2.push(calculator.display.value);
       } else {
-        todoTextWithCompletion = '( ) ' + todo.todoText;
+        num1.push(calculator.display.value);
       }
       
-      todoLi.id = position;
-      todoLi.textContent = todoTextWithCompletion;
-      todoLi.appendChild(this.createDeleteButton());
-      todosUl.appendChild(todoLi);
+    //   todoLi.id = position;
+    //   todoLi.textContent = todoTextWithCompletion;
+    //   todoLi.appendChild(this.createDeleteButton());
+    //   todosUl.appendChild(todoLi);
     }, this);
 }
 }
