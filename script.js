@@ -1,31 +1,31 @@
-
+var operatorInput;
 var handlers = {
     add: function() {
-        var operatorInput = document.getElementById('operatorInput');
+        operatorInput = document.getElementById('operatorInput');
         operatorInput.value = '+';
   },
 
     subtract: function() {
-        var operatorInput = document.getElementById('operatorInput');
+        operatorInput = document.getElementById('operatorInput');
         operatorInput.value = '-';
   },
   
     multiply: function() {
-        var operatorInput = document.getElementById('operatorInput');
+        operatorInput = document.getElementById('operatorInput');
         operatorInput.value = 'x';
   },
   
     divide: function() {
-        var operatorInput = document.getElementById('operatorInput');
+        operatorInput = document.getElementById('operatorInput');
         operatorInput.value = '/';
   },
   
   clearDisplay: function() {
             var display = document.getElementById('display');
             display.value = '0';
-            storedNum = '0';
-            calculationFinished = true;
-            operation = operations.none;
+            var storedNum = '0';
+            var calculationFinished = true;
+            var operation = operations.none;
             operatorInput.value = '';
         } 
   
@@ -43,93 +43,102 @@ var handlers = {
     divide:   function(left, right) { return left / right; }
 };
 
-    document.getElementById('zero').onclick = function() {
+function numInput(digit) {
+    var display = document.getElementById('display');
+    clearPreviousResult();
+    // Get rid of a 0 if it's the only thing in there.
+    // This particular way of doing it lets you enter a 0 and have it show up,
+    // as well as leaving a 0 for the decimal point to snuggle up to.
+    if (display.value === '0') display.value = '';
+    display.value += digit;
+}
+    // document.getElementById('zero').onclick = function() {
 
-        calculator.display.push(0);
-        console.log(calculator.display);
-        document.getElementById('display').value = calculator.display.join("");
-    },
+    //     calculator.display.push(0);
+    //     console.log(calculator.display);
+    //     document.getElementById('display').value = calculator.display.join("");
+    // },
 
-    document.getElementById('value1').onclick = function() {
+    // document.getElementById('value1').onclick = function() {
 
-        calculator.display.push(1);
-        console.log(calculator.display);
-        document.getElementById('display').value = calculator.display.join("");
-    },
+    //     calculator.display.push(1);
+    //     console.log(calculator.display);
+    //     document.getElementById('display').value = calculator.display.join("");
+    // },
     
-    document.getElementById('value2').onclick = function() {
+    // document.getElementById('value2').onclick = function() {
 
-        calculator.display.push(2);
-        console.log(calculator.display);
-        document.getElementById('display').value = calculator.display.join("");
-    },
+    //     calculator.display.push(2);
+    //     console.log(calculator.display);
+    //     document.getElementById('display').value = calculator.display.join("");
+    // },
     
-    document.getElementById('value3').onclick = function() {
+    // document.getElementById('value3').onclick = function() {
 
-        calculator.display.push(3);
-        console.log(calculator.display);
-        document.getElementById('display').value = calculator.display.join("");
-    },
+    //     calculator.display.push(3);
+    //     console.log(calculator.display);
+    //     document.getElementById('display').value = calculator.display.join("");
+    // },
     
-    document.getElementById('value4').onclick = function() {
+    // document.getElementById('value4').onclick = function() {
 
-        calculator.display.push(4);
-        console.log(calculator.display);
-        document.getElementById('display').value = calculator.display.join("");
-    },
+    //     calculator.display.push(4);
+    //     console.log(calculator.display);
+    //     document.getElementById('display').value = calculator.display.join("");
+    // },
     
-    document.getElementById('value5').onclick = function() {
+    // document.getElementById('value5').onclick = function() {
 
-        calculator.display.push(5);
-        console.log(calculator.display);
-        document.getElementById('display').value = calculator.display.join("");
-    },
+    //     calculator.display.push(5);
+    //     console.log(calculator.display);
+    //     document.getElementById('display').value = calculator.display.join("");
+    // },
     
-    document.getElementById('value6').onclick = function() {
+    // document.getElementById('value6').onclick = function() {
 
-        calculator.display.push(6);
-        console.log(calculator.display);
-        document.getElementById('display').value = calculator.display.join("");
-    },
+    //     calculator.display.push(6);
+    //     console.log(calculator.display);
+    //     document.getElementById('display').value = calculator.display.join("");
+    // },
     
-    document.getElementById('value7').onclick = function() {
+    // document.getElementById('value7').onclick = function() {
 
-        calculator.display.push(7);
-        console.log(calculator.display);
-        document.getElementById('display').value = calculator.display.join("");
-    },
+    //     calculator.display.push(7);
+    //     console.log(calculator.display);
+    //     document.getElementById('display').value = calculator.display.join("");
+    // },
     
-    document.getElementById('value8').onclick = function() {
+    // document.getElementById('value8').onclick = function() {
 
-        calculator.display.push(8);
-        console.log(calculator.display);
-        document.getElementById('display').value = calculator.display.join("");
-    },
+    //     calculator.display.push(8);
+    //     console.log(calculator.display);
+    //     document.getElementById('display').value = calculator.display.join("");
+    // },
      
-    document.getElementById('value9').onclick = function() {
+    // document.getElementById('value9').onclick = function() {
 
-        calculator.display.push(9);
-        console.log(calculator.display);
-        document.getElementById('display').value = calculator.display.join("");
-    };
+    //     calculator.display.push(9);
+    //     console.log(calculator.display);
+    //     document.getElementById('display').value = calculator.display.join("");
+    // };
 
     
-var view = {
-  display: function() {
-    var display = document.querySelector('display');
-    calculator.display.value = '';
-    var operatorInput = document.getElementById('operatorInput');
-    calculator.display.forEach(function(num, position) {
-      var num1 = [];
-      var num2 = [];
+// var view = {
+//   display: function() {
+//     var display = document.querySelector('display');
+//     calculator.display.value = '';
+//     var operatorInput = document.getElementById('operatorInput');
+//     calculator.display.forEach(function(num, position) {
+//       var num1 = [];
+//       var num2 = [];
 
-      if (operatorInput === true) {
-        num2.push(calculator.display.value);
-      } else {
-        num1.push(calculator.display.value);
-      }
+//       if (operatorInput === true) {
+//         num2.push(calculator.display.value);
+//       } else {
+//         num1.push(calculator.display.value);
+//       }
   
-    }, this);
-}
-}
+//     }, this);
+// }
+// }
 
