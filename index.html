@@ -23,8 +23,8 @@
             </form>
         </div>
         <div class="row" id="first">
-            <button type="button" id="allClear" class="btn btn-danger, btn-sm" onclick="handlers.clearDisplay()">AC</button>
-            <button type="button" id="clear" class="btn btn-danger, btn-sm" onclick="handlers.clearDisplay()">C</button>
+            <button type="button" id="allClear" class="btn btn-danger, btn-sm" onclick="clearDisplay()">AC</button>
+            <button type="button" id="clear" class="btn btn-danger, btn-sm" onclick="clearDisplay()">C</button>
             <button type="button" id="divide" class="btn btn-primary btn-sm" onclick="handlers.divide()">&#247;</button>
             <button type="button" id="multiply" class="btn btn-primary btn-sm" onclick="handlers.multiply()">&#215;</button>
         </div>
@@ -44,7 +44,7 @@
             <button type="button" value="1" id="value1" class="btn btn-primary btn-sm" onclick="numInput('1')">1</button>
             <button type="button" value="2" id="value2" class="btn btn-primary btn-sm" onclick="numInput('2')">2</button>
             <button type="button" value="3" id="value3" class="btn btn-primary btn-sm" onclick="numInput('3')">3</button>
-            <button type="button" id="equals" class="btn btn-primary btn-lg" onclick="handlers.equals()">=</button>
+            <button type="button" id="equals" class="btn btn-primary btn-lg" onclick="calculate(), handlers.equals()">=</button>
         </div>
         <div class="row" id="fifth">
             <button type="button" id="zero" class="btn btn-primary btn-lg" onclick="numInput('0')">0</button>

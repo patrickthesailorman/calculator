@@ -1,35 +1,42 @@
 var operatorInput;
+var display;
+var calculationFinished;
+var operation;
+var storedNum;
 var handlers = {
     add: function() {
         operatorInput = document.getElementById('operatorInput');
         operatorInput.value = '+';
-  },
+    },
 
     subtract: function() {
         operatorInput = document.getElementById('operatorInput');
         operatorInput.value = '-';
-  },
+    },
   
     multiply: function() {
         operatorInput = document.getElementById('operatorInput');
         operatorInput.value = 'x';
-  },
+    },
   
     divide: function() {
         operatorInput = document.getElementById('operatorInput');
         operatorInput.value = '/';
-  },
+    },
   
-  clearDisplay: function() {
-            var display = document.getElementById('display');
+    equals: function() {
+        operatorInput = document.getElementById('operatorInput');
+        operatorInput.value = '=';
+    }
+};
+function clearDisplay() {
+            display = document.getElementById('display');
             display.value = '0';
-            var storedNum = '0';
-            var calculationFinished = true;
-            var operation = operations.none;
+            storedNum = '0';
+            calculationFinished = true;
+            operation = operations.none;
             operatorInput.value = '';
         } 
-  
-};
  var operations = {
     /* no-op. Takes the right side, and just returns it.  Since the right side is the
     display value, and calculate() sets display.value, this effectively makes
@@ -43,15 +50,31 @@ var handlers = {
     divide:   function(left, right) { return left / right; }
 };
 
+function clearPreviousResult() {
+    display = document.getElementById('display');
+    if (calculationFinished) {
+        display.value = '0';
+        calculationFinished = false;
+    }
+}
+
 function numInput(digit) {
     var display = document.getElementById('display');
     clearPreviousResult();
-    // Get rid of a 0 if it's the only thing in there.
-    // This particular way of doing it lets you enter a 0 and have it show up,
-    // as well as leaving a 0 for the decimal point to snuggle up to.
+    /*Get rid of a 0 if it's the only thing in there.
+    This lets you enter a 0 and have it show up
+    and leaves a 0 for the decimal point. */
     if (display.value === '0') display.value = '';
     display.value += digit;
 }
+
+function calculate() {
+    display = document.getElementById('display');
+    display.value = operation(+storedNum, +display.value);
+    calculationFinished = true;
+    operation = operations.none;
+}
+
     // document.getElementById('zero').onclick = function() {
 
     //     calculator.display.push(0);
