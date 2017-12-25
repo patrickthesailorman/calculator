@@ -3,25 +3,21 @@ var handlers = {
     add: function() {
         var operatorInput = document.getElementById('operatorInput');
         operatorInput.value = '+';
-       
   },
 
     subtract: function() {
         var operatorInput = document.getElementById('operatorInput');
         operatorInput.value = '-';
-        
   },
   
     multiply: function() {
         var operatorInput = document.getElementById('operatorInput');
         operatorInput.value = 'x';
-        
   },
   
     divide: function() {
         var operatorInput = document.getElementById('operatorInput');
         operatorInput.value = '/';
-        
   },
   
   clearDisplay: function() {
