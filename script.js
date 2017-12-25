@@ -26,82 +26,79 @@
         //      var sum = num1(operator)num2;
         //      document.getElementById("display").innerHTML = sum;
         //  },
-        clear: function(position) {
-            this.display.splice(position, 1);
-        },
-        
-        clearAll: function() {
-            document.getElementById("display").innerHTML = "";
-        }
     };
+
+    
 var num1 = [];
 var num2 = [];
 var handlers = {
     add: function() {
-    var operatorInput = document.getElementById('operatorInput');
-    document.getElementById('display');
-    num1.push(parseInt(calculator.display.value));
-    calculator.add(parseInt(calculator.display.value));
-    operatorInput.value = '+';
-    view.display();
+        var operatorInput = document.getElementById('operatorInput');
+        document.getElementById('display');
+        num1.push(parseInt(calculator.display.value));
+        calculator.add(parseInt(calculator.display.value));
+        operatorInput.value = '+';
+        view.display();
   },
 
     subtract: function() {
-    var operatorInput = document.getElementById('operatorInput');
-    num1.push(parseInt(calculator.display.value));
-    calculator.subtract(parseInt(calculator.display.value));
-    operatorInput.value = '-';
-    view.calculator.display();
+        var operatorInput = document.getElementById('operatorInput');
+        num1.push(parseInt(calculator.display.value));
+        calculator.subtract(parseInt(calculator.display.value));
+        operatorInput.value = '-';
+        view.calculator.display();
   },
   
     multiply: function() {
-    var operatorInput = document.getElementById('operatorInput');
-    num1.push(parseInt(calculator.display.value));
-    calculator.multiply(parseInt(calculator.display.value));
-    operatorInput.value = 'x';
-    view.calculator.display();
+        var operatorInput = document.getElementById('operatorInput');
+        num1.push(parseInt(calculator.display.value));
+        calculator.multiply(parseInt(calculator.display.value));
+        operatorInput.value = 'x';
+        view.calculator.display();
   },
   
     divide: function() {
-    var operatorInput = document.getElementById('operatorInput');
-    num1.push(parseInt(calculator.display.value));
-    calculator.divide(parseInt(calculator.display.value));
-    operatorInput.value = '/';
-    view.calculator.display();
+        var operatorInput = document.getElementById('operatorInput');
+        num1.push(parseInt(calculator.display.value));
+        calculator.divide(parseInt(calculator.display.value));
+        operatorInput.value = '/';
+        view.calculator.display();
   },
   
     equals: function() {
-    
-    var operatorInput = document.getElementById('operatorInput');
-    num2.push(parseInt(calculator.display.value));
-    if(operatorInput.value === '+') {
-        calculator.add(num1, num2);
-    } else if(operatorInput.value === '-') {
-        calculator.subtract(num1, num2);
-    } else if(operatorInput.value === 'x') {
-        calculator.multiply(num1, num2);
-    } else if(operatorInput.value === '/') {
-        calculator.divide(num1, num2);
-    } else {
-        calculator.display.value;
-    }
-    operatorInput.value = '=';
-    view.display();
+        var operatorInput = document.getElementById('operatorInput');
+        num2.push(parseInt(calculator.display.value));
+        if(operatorInput.value === '+') {
+            calculator.add(num1, num2);
+        } else if(operatorInput.value === '-') {
+            calculator.subtract(num1, num2);
+        } else if(operatorInput.value === 'x') {
+            calculator.multiply(num1, num2);
+        } else if(operatorInput.value === '/') {
+            calculator.divide(num1, num2);
+        } else {
+            calculator.display.value;
+        }
+        operatorInput.value = '=';
+        view.display();
   },
-  
-    clear: function(position) {
-    calculator.display.clear(position);
-    view.display();
-  },
+  clearDisplay: function() {
+            var display = document.getElementById('display');
+            display.value = '0';
+            storedNum = '0';
+            calculationFinished = true;
+            operation = operations.none;
+        } 
   
 };
 
-    document.getElementById("clear").onclick = function(position) {
-        var display = document.getElementById("display").innerHTML;
-        calculator.display.splice(calculator.display.length-1, 1);
-        console.log(calculator.display[calculator.display.length-1]);
-        display = calculator.display.value;
-    },
+
+
+    // document.getElementById("clear").onclick = function(position) {
+    //     calculator.display.splice(calculator.display.length-1);
+    //     console.log(calculator.display.value[calculator.display.length-1]);
+    //     calculator.display.value;
+    // },
 
     document.getElementById('zero').onclick = function() {
 
@@ -207,11 +204,7 @@ var view = {
       } else {
         num1.push(calculator.display.value);
       }
-      
-    //   todoLi.id = position;
-    //   todoLi.textContent = todoTextWithCompletion;
-    //   todoLi.appendChild(this.createDeleteButton());
-    //   todosUl.appendChild(todoLi);
+  
     }, this);
 }
 }
