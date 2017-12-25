@@ -69,6 +69,14 @@ function numInput(digit) {
     display.value += digit;
 }
 
+function setOperation(command) {
+    var display = document.getElementById('display');
+    calculate();
+    storedNum = display.value;
+    if (operations.hasOwnProperty(command))
+        operation = operations[command];
+}
+
 function calculate() {
     display = document.getElementById('display');
     display.value = operation(+storedNum, +display.value);
@@ -76,4 +84,8 @@ function calculate() {
     operation = operations.none;
 }
 
+if ('addEventListener' in window)
+    window.addEventListener('load', clearDisplay);
+else
+    window.attachEvent('onload', clearDisplay);
 
