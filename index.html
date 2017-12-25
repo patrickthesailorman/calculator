@@ -25,20 +25,20 @@
         <div class="row" id="first">
             <button type="button" id="allClear" class="btn btn-danger, btn-sm" onclick="clearDisplay()">AC</button>
             <button type="button" id="clear" class="btn btn-danger, btn-sm" onclick="clearDisplay()">C</button>
-            <button type="button" id="divide" class="btn btn-primary btn-sm" onclick="handlers.divide()">&#247;</button>
-            <button type="button" id="multiply" class="btn btn-primary btn-sm" onclick="handlers.multiply()">&#215;</button>
+            <button type="button" id="divide" class="btn btn-primary btn-sm" onclick="setOperation('divide'), handlers.divide()">&#247;</button>
+            <button type="button" id="multiply" class="btn btn-primary btn-sm" onclick="setOperation('multiply'), handlers.multiply()">&#215;</button>
         </div>
         <div class="row" id="second">
             <button type="button" value="7" id="value7" class="btn btn-primary btn-sm" onclick="numInput('7')">7</button>
             <button type="button" value="8" id="value8" class="btn btn-primary btn-sm" onclick="numInput('8')">8</button>
             <button type="button" value="9" id="value9" class="btn btn-primary btn-sm" onclick="numInput('9')">9</button>
-            <button type="button" value="-" id="subtract" class="btn btn-primary btn-sm" onclick="handlers.subtract()">-</button>
+            <button type="button" value="-" id="subtract" class="btn btn-primary btn-sm" onclick="setOperation('subtract'), handlers.subtract()">-</button>
         </div>
         <div class="row" id="third">
             <button type="button" value="4" id="value4" class="btn btn-primary btn-sm" onclick="numInput('4')">4</button>
             <button type="button" value="5" id="value5" class="btn btn-primary btn-sm" onclick="numInput('5')">5</button>
             <button type="button" value="6" id="value6" class="btn btn-primary btn-sm" onclick="numInput('6')">6</button>
-            <button type="button" id="plus" class="btn btn-primary btn-sm" onclick="handlers.add()">+</button>
+            <button type="button" id="plus" class="btn btn-primary btn-sm" onclick="setOperation('add'), handlers.add()">+</button>
         </div>
         <div class="row" id="fourth">
             <button type="button" value="1" id="value1" class="btn btn-primary btn-sm" onclick="numInput('1')">1</button>
