@@ -1,13 +1,11 @@
-/*global $*/
 
-// $(document).ready(function() {
 
     var calculator = {
         display: [],
         numbers: [],
         add: function(num1, num2) {
             var sum = num1 + num2;
-            this.display.value = sum
+            this.display.value = sum;
             document.getElementById("display").innerHTML = sum;
         },
         subtract: function(num1, num2) {
@@ -22,10 +20,6 @@
             var sum = num1 / num2;
             document.getElementById("display").innerHTML = sum;
         },
-        //  equals: function() {
-        //      var sum = num1(operator)num2;
-        //      document.getElementById("display").innerHTML = sum;
-        //  },
     };
 
     
@@ -91,14 +85,18 @@ var handlers = {
         } 
   
 };
+ var operations = {
+    // no-op. Takes the right side, and just returns it.  Since the right side is the
+    // display value, and calculate() sets display.value, this effectively makes
+    // calculate() say "display.value = +display.value".
+    none:     function(left, right) { return right; },
 
-
-
-    // document.getElementById("clear").onclick = function(position) {
-    //     calculator.display.splice(calculator.display.length-1);
-    //     console.log(calculator.display.value[calculator.display.length-1]);
-    //     calculator.display.value;
-    // },
+    // Math ops.
+    add:      function(left, right) { return left + right; },
+    subtract: function(left, right) { return left - right; },
+    multiply: function(left, right) { return left * right; },
+    divide:   function(left, right) { return left / right; }
+};
 
     document.getElementById('zero').onclick = function() {
 
@@ -170,26 +168,7 @@ var handlers = {
         document.getElementById('display').value = calculator.display.join("");
     };
 
-    // document.getElementById('plus').onclick = function() {
-    //     var display = document.getElementById("display").value;
-    //     console.log(display);
-    //     var runningTotal = 0;
-    //     for (var i =0; i < display.length; i++) {
-    //         console.log(display[i]);
-    //         runningTotal = runningTotal + parseInt(display[i]);
-    //     }
-    //     console.log(runningTotal);
-    //     document.getElementById("display").innerHTML = runningTotal;
-    // },
     
-    // document.getElementById("equlas").onclick = function() {
-    //     var display = document.getElementById("display").innerHTML;
-    //     var runningTotal = 0;
-    //     for (var i =0; i < display.length; i++) {
-    //         console.log(display[i]);
-    //         runningTotal = runningTotal + parseInt(display[i]);
-    // }
-    // }
 var view = {
   display: function() {
     var display = document.querySelector('display');
