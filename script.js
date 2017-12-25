@@ -84,6 +84,12 @@ function calculate() {
     operation = operations.none;
 }
 
+function insertDecimal() {
+    var display = document.getElementById('display');
+    clearPreviousResult();
+    if (display.value.indexOf('.') === -1) display.value += '.';
+}
+
 if ('addEventListener' in window)
     window.addEventListener('load', clearDisplay);
 else
