@@ -22,7 +22,7 @@ var handlers = {
   
     divide: function() {
         operatorInput = document.getElementById('operatorInput');
-        operatorInput.value = '/';
+        // operatorInput.value = '&#247';
     },
   
     equals: function() {
